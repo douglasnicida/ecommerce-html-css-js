@@ -1,3 +1,92 @@
+const productsJSON = {
+    "products": {
+        "1": {    
+            "name": "Shorts 3 Stripes",
+            "price": "$24.59",
+            "category": "M",
+            "news": true,
+            "metadata": {
+                "url": "https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/aeccde0cb37c4024a977ae5a01005cad_9366/Shorts_3_Listras_Preto_EY0324_01_laydown.jpg"
+            }
+        },
+
+        "2": {    
+            "name": "LEAGUE SHOT MEDIUM DUFFEL SUITCASE",
+            "price": "$57.00",
+            "category": "ACC",
+            "news": false,
+            "metadata": {
+                "url": "https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/9d7963e98faa4784b4a8af0e00fb62dc_9366/Mala_Duffel_Media_Tiro_League_Preto_HS9749_01_standard.jpg"
+            }
+        },
+
+        "3": {    
+            "name": "3 PAIR MID-LEVEL SOCKS",
+            "price": "$15.00",
+            "category": "M",
+            "news": false,
+            "metadata": {
+                "url": "https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/3652989edb744c02924eaf56014ab74d_9366/Meias_Cano_Medio_3_Pares_Preto_FZ9704_03_standard.jpg"
+            }
+        },
+
+        "4": {    
+            "name": "CHINELO ADILETTE SHOWER",
+            "price": "$41.20",
+            "category": "M",
+            "news": true,
+            "metadata": {
+                "url": "https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/25eaf44f839e4e8faf8fad7801166696_9366/Chinelo_Adilette_Shower_Azul_GZ5920_01_standard.jpg"
+            }
+        },
+
+        "5": {    
+            "name": "TÊNIS ULTRABOOST LIGHT",
+            "price": "$241.99",
+            "category": "M",
+            "news": false,
+            "metadata": {
+                "url": "https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/0fbed4646c1d46e0aae0af6901301ff4_9366/Tenis_Ultraboost_Light_Branco_HQ6351_01_standard.jpg"
+            }
+        },
+
+        "6": {    
+            "name": "CAMISETA GRAPHICS NEW AGE",
+            "price": "$37.00",
+            "category": "M",
+            "news": true,
+            "metadata": {
+                "url": "https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/991b2da908d44f1c9864af9b00e01c19_9366/Camiseta_Graphics_New_Age_Branco_IC8871_21_model.jpg"
+            }
+        },
+
+        "7": {    
+            "name": "Shorts 3 Stripes",
+            "price": "$24.59",
+            "category": "M",
+            "news": false,
+            "metadata": {
+                "url": "https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/aeccde0cb37c4024a977ae5a01005cad_9366/Shorts_3_Listras_Preto_EY0324_01_laydown.jpg"
+            }
+        },
+
+        "8": {    
+            "name": "Shorts 3 Stripes",
+            "price": "$24.59",
+            "category": "M",
+            "news": false,
+            "metadata": {
+                "url": "https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/aeccde0cb37c4024a977ae5a01005cad_9366/Shorts_3_Listras_Preto_EY0324_01_laydown.jpg"
+            }
+        }
+    },
+
+    "viewProduct": {
+        "url": ["https://m.media-amazon.com/images/I/812n6telUpL._AC_SL1500_.jpg", "https://m.media-amazon.com/images/I/81lJ+2P5B1L._AC_SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/71sokFoHP0L._AC_SL1500_.jpg", "https://m.media-amazon.com/images/I/71zhYgerHbL._AC_SL1500_.jpg"]
+    }
+}
+
 if(document.readyState == 'loading'){
     document.addEventListener('DOMContentLoaded', ready)
 } else {
@@ -5,19 +94,32 @@ if(document.readyState == 'loading'){
 }
 
 function ready(){
+
+    console.log(productsJSON);
+
     var otherViews = document.getElementsByClassName("other-views")[0];
 
-    fetch("../repo.json").then(result => {return result.json()}).then(data => {
-        var listViewsJson = data.viewProduct;
-        var listViews = listViewsJson.url;
+    var listViewsJson = productsJSON.viewProduct;
+    var listViews = listViewsJson.url;
 
-        listViews.forEach(view_url => {
-            var imgHTML = document.createElement("img");
-            imgHTML.src = view_url;
-            otherViews.append(imgHTML);
-        });
-        console.log(listViews);
+    listViews.forEach(view_url => {
+        var imgHTML = document.createElement("img");
+        imgHTML.src = view_url;
+        otherViews.append(imgHTML);
     });
+    console.log(listViews);
+
+    // fetch("../repo.json").then(result => {return result.json()}).then(data => {
+    //     var listViewsJson = data.viewProduct;
+    //     var listViews = listViewsJson.url;
+
+    //     listViews.forEach(view_url => {
+    //         var imgHTML = document.createElement("img");
+    //         imgHTML.src = view_url;
+    //         otherViews.append(imgHTML);
+    //     });
+    //     console.log(listViews);
+    // });
 
     otherViews.addEventListener("click", changeMainView);
 
@@ -61,34 +163,59 @@ function ready(){
     // PRODUCTS
     var shopContentNews = document.getElementsByClassName("news-products")[0];
     
+    var productList = productsJSON.products;
+    Object.keys(productList).forEach(product => {
+
+        var productBoxNews = document.createElement('div');
+        productBoxNews.classList.add('product-box');
+        
+
+        // NEWS
+        if(productList[product].category == "M"){
+            var productNewsBoxes = `
+                <img src="${productList[product].metadata.url}" alt="${productList[product].name}" class="product-img">
+                <h2 class="product-title">${productList[product].name}</h2>
+                <span class="product-price">${productList[product].price}</span>
+                <i class='bx bx-shopping-bag add-cart'></i>
+            `;
+
+            productBoxNews.innerHTML = productNewsBoxes;
+
+            shopContentNews.append(productBoxNews);
+
+            productBoxNews.getElementsByClassName("add-cart")[0].addEventListener('click', addCartClicked);
+            
+        }
+    });
+
     // getting the products to fill the content
-    fetch("../repo.json").then(result => {return result.json()}).then(data => {
-        var productList = data.products;
+    // fetch("../repo.json").then(result => {return result.json()}).then(data => {
+    //     var productList = data.products;
 
-        Object.keys(productList).forEach(product => {
+    //     Object.keys(productList).forEach(product => {
 
-            var productBoxNews = document.createElement('div');
-            productBoxNews.classList.add('product-box');
+    //         var productBoxNews = document.createElement('div');
+    //         productBoxNews.classList.add('product-box');
             
 
-            // NEWS
-            if(productList[product].category == "M"){
-                var productNewsBoxes = `
-                    <img src="${productList[product].metadata.url}" alt="${productList[product].name}" class="product-img">
-                    <h2 class="product-title">${productList[product].name}</h2>
-                    <span class="product-price">${productList[product].price}</span>
-                    <i class='bx bx-shopping-bag add-cart'></i>
-                `;
+    //         // NEWS
+    //         if(productList[product].category == "M"){
+    //             var productNewsBoxes = `
+    //                 <img src="${productList[product].metadata.url}" alt="${productList[product].name}" class="product-img">
+    //                 <h2 class="product-title">${productList[product].name}</h2>
+    //                 <span class="product-price">${productList[product].price}</span>
+    //                 <i class='bx bx-shopping-bag add-cart'></i>
+    //             `;
 
-                productBoxNews.innerHTML = productNewsBoxes;
+    //             productBoxNews.innerHTML = productNewsBoxes;
 
-                shopContentNews.append(productBoxNews);
+    //             shopContentNews.append(productBoxNews);
 
-                productBoxNews.getElementsByClassName("add-cart")[0].addEventListener('click', addCartClicked);
+    //             productBoxNews.getElementsByClassName("add-cart")[0].addEventListener('click', addCartClicked);
                 
-            }
-        });
-    } );
+    //         }
+    //     });
+    // } );
     
     // Remove Items From Cart
     var removeCartButtons = document.getElementsByClassName('product-cart-remove');
