@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ecommerce Website - Shopping Cart</title>
+
+    <!-- Link to CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+    <!-- Box Icons -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header>
+
+        <nav>
+            <div class="container nav">
+                <i class='bx bx-menu' id="menu-icon"></i>
+                <a href="#" class="logo">Ecommerce</a> <!-- Logo -->
+                <i class='bx bx-shopping-bag' id="cart-icon"></i> <!-- Cart-Icon -->
+            </div>
+
+            <div class="category-nav">
+                <ul class="categories-nav">
+                    <li><a href="">Masculine</a></li>
+                    <li><a href="">Feminine</a></li>
+                    <li><a href="">Accessories</a></li>
+                    <li><a href="#news-container">News</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    
+
+    <section class="news">
+        <div class="news-img">
+            <a href="./product.html"><button type="button" class="btn">Clique aqui</button></a>
+            <div class="border-circle">
+                <div class="circle-pointer"></div>
+            </div>
+            <div class="line"></div>
+        </div>
+    </section>
+
+    <!-- Shop -->
+    <section class="shop container">
+        <h2 class="section-title">Shop Products</h2> <!-- Section Title -->
+
+        <!-- Content(products) --> 
+        <div class="shop-content shop-container">
+            
+        </div>
+
+        <h2 class="section-title">Shop News</h2>
+
+        <!-- Content news(products) --> 
+        <div id="news-container" class="news-container">
+            <div class="shop-content news-products">
+
+            </div>
+            <a href="">View More>></a>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+       
+    </footer>
+
+    <div class="focus"></div>
+
+    <!-- Cart -->
+    <div class="cart"> <!-- Cart -->
+        <h2 class="cart-title">Your Cart</h2> <!-- Cart Title -->
+        
+        <div class="cart-content">
+            
+        </div>
+
+        <!-- Total -->
+        <div class="cart-total">
+            <div class="cart-total-title">Total</div>
+            <div class="cart-total-price">$0</div>
+        </div>
+
+        <!-- Cart Buy Button -->
+        <button type="button" class="btn-buy">Buy Now</button>
+
+        <!-- Cart Close -->
+        <i class='bx bx-x' id="btn-close-cart" ></i>
+    </div>
+
+    <script src="js/main.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ecommerce Website - Shopping Cart</title>
+
+    <!-- Link to CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/stylesProduct.css">
+    <!-- Box Icons -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header>
+
+        <nav>
+            <div class="container nav">
+                <i class='bx bx-menu' id="menu-icon"></i>
+                <a href="./index.html" class="logo">Ecommerce</a> <!-- Logo -->
+                <i class='bx bx-shopping-bag' id="cart-icon"></i> <!-- Cart-Icon -->
+            </div>
+
+            <div class="category-nav">
+                <ul class="categories-nav">
+                    <li><a href="">Masculine</a></li>
+                    <li><a href="">Feminine</a></li>
+                    <li><a href="">Accessories</a></li>
+                    <li><a href="./index.html#news-container">News</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <section class="product">
+        <div class="view">
+            <div class="other-views flippedScroll"></div>
+            <div class="mainImgContainer">
+                <img src="https://m.media-amazon.com/images/I/812n6telUpL._AC_SL1500_.jpg" class="main-view" alt="">
+            </div>
+        </div>
+
+        <div class="details">
+            <h2 class="title">Adidas Boys' Chop Pullover Hoodie</h2>
+            <div class="customer-feedback">
+                <div class="stars">
+                    <p><span class="qtdStars">4</span> Estrelas</p>
+                </div>
+                <a href="#comments" class="numComments"></a>
+            </div>
+            
+            <div class="price-container">
+                <p class="price">$62.00</p>
+                <p>Até 4x sem juros</p>
+                <a href="">See other options</a>
+            </div>
+
+            <div class="sizes">
+                <h4>Sizes</h4>
+                <div class="size-options">
+                    <button class="size-op">PP</button>
+                    <button class="size-op active">P</button>
+                    <button class="size-op" disabled="disabled">M</button>
+                    <button class="size-op">G</button>
+                    <button class="size-op">GG</button>
+                </div>
+            </div>
+
+            <div class="add-to-cart">
+                <i class='bx bx-shopping-bag add-cart-details'></i>
+                <div class="text-addToCart"><h3>Add to cart</h3></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Shop -->
+    <section class="shop container">
+
+        <h2 class="section-title">Recommended</h2>
+
+        <!-- Content news(products) --> 
+        <div id="recommended-container" class="news-container">
+            <div class="shop-content news-products">
+
+            </div>
+            <a href="">View More>></a>
+        </div>
+
+        <hr>
+    </section>
+
+    
+    <section class="comments container" id="comments">
+        
+        <h2>Comments</h2>
+
+        <div class="comment">
+            <div class="avaliation">Excellent!</div>
+            <div class="comment-stars"></div>
+            <div class=""><p class="comment-text">Excelente, muito bonito, ótimo tecido, veste bem, tamanho perfeito.</p></div>
+            <div class="comment-feedback">
+                <p>Was this helpful?</p>
+                <div class="helpful-container">
+                    <i class='bx bx-like bx-tada-hover btnHelpful'></i>
+                    <p class="numHelpfulClicks">0</p>
+                </div>
+                <div class="unhelpful-container">
+                    <i class='bx bx-dislike bx-tada-hover btnUnhelpful'></i>
+                    <p class="numUnhelpfulClicks">0</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="comment">
+            <div class="avaliation">Excellent!</div>
+            <div class="comment-stars"></div>
+            <div class=""><p class="comment-text">Recomendo, uso no dia a dia, confortável e bonito</p></div>
+            <div class="comment-feedback">
+                <p>Was this helpful?</p>
+                <div class="helpful-container">
+                    <i class='bx bx-like bx-tada-hover btnHelpful'></i>
+                    <p class="numHelpfulClicks">0</p>
+                </div>
+                <div class="unhelpful-container">
+                    <i class='bx bx-dislike bx-tada-hover btnUnhelpful'></i>
+                    <p class="numUnhelpfulClicks">0</p>
+                </div>
+            </div>
+        </div>
+        
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+       
+    </footer>
+
+    <div class="focus"></div>
+
+    <!-- Cart -->
+    <div class="cart"> <!-- Cart -->
+        <h2 class="cart-title">Your Cart</h2> <!-- Cart Title -->
+        
+        <div class="cart-content">
+            <!-- Será adicionado pela função -->
+            <!-- <div class="cart-item">
+                <img src="img/product2.jpg" alt="" class="product-cart-img">
+
+                <div class="cart-detail-box">
+                    <div class="cart-product-title">Earbuds</div>
+                    <div class="product-cart-price">$25</div>
+
+                    <input type="number" value="1" class="product-cart-quantity" min ='1'>
+                </div>
+
+                Remover Cart Item
+                <i class='bx bxs-trash-alt product-cart-remove' ></i>
+            </div>
+             -->
+        </div>
+
+        <!-- Total -->
+        <div class="cart-total">
+            <div class="cart-total-title">Total</div>
+            <div class="cart-total-price">$0</div>
+        </div>
+
+        <!-- Cart Buy Button -->
+        <button type="button" class="btn-buy">Buy Now</button>
+
+        <!-- Cart Close -->
+        <i class='bx bx-x' id="btn-close-cart" ></i>
+    </div>
+
+    <script src="js/product.js"></script>
+</body>
+
+</html>
