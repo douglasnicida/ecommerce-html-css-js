@@ -49,11 +49,14 @@ function ready(){
 
 
     // HELPFUL COMMENTS
-    var btnHelpful = document.getElementsByClassName("btnHelpful")[0];
-    var btnUnhelpful = document.getElementsByClassName("btnUnhelpful")[0];
+    var btnHelpful = document.getElementsByClassName("btnHelpful");
+    var btnUnhelpful = document.getElementsByClassName("btnUnhelpful");
 
-    btnHelpful.addEventListener("click", btnHelpfulClicked);
-    btnUnhelpful.addEventListener("click", btnUnhelpfulClicked);
+    for(let i=0 ; i<btnHelpful.length ; i++){
+        btnHelpful[i].addEventListener("click", btnHelpfulClicked);
+        btnUnhelpful[i].addEventListener("click", btnUnhelpfulClicked);
+    }
+
 
     // PRODUCTS
     var shopContentNews = document.getElementsByClassName("news-products")[0];
