@@ -342,8 +342,8 @@ function changeQtdIcon(op){
         iconQtdElement.classList.add("active");
         
     } else {
-        let qtd = Number(qtdCartItemsElement.innerText) - 1;
-        if(Number(cartItemElementsQtd.innerText) > 0){
+        if(Number(qtdCartItemsElement.innerText) > 0){
+            let qtd = Number(qtdCartItemsElement.innerText) - 1;
             qtdCartItemsElement.innerText = qtd;
             
             iconQtdElement.classList.add("active");
@@ -369,7 +369,7 @@ function buyButtonClicked(){
             var cartItems = cartContent.getElementsByClassName('cart-item');
             for(let i=0 ; i<cartItems.length ; i++){
                 var sub = false;
-                changeQtdIcon(false);
+                changeQtdIcon(sub);
             }
         }
     } else {
