@@ -251,6 +251,7 @@ function ready(){
 
     // Buy Button Work
     document.getElementsByClassName('btn-buy')[0].addEventListener('click', buyButtonClicked);
+
 }
 
 // Remove Items From Cart
@@ -259,6 +260,9 @@ function removeCartItem(event){
     buttonClicked.parentElement.remove();
 
     updateTotal();
+
+    let sub = false;
+    changeQtdIcon(sub);
 }
 
 // Quantity Changes
@@ -318,7 +322,36 @@ function addProductToCart(title, price, image){
     cartShopItem.getElementsByClassName('product-cart-remove')[0].addEventListener('click', removeCartItem);
     cartShopItem.getElementsByClassName('product-cart-quantity')[0].addEventListener('change', quantityChanged);
 
+
+    let sum = true;
+    changeQtdIcon(sum);
+
     
+}
+
+function changeQtdIcon(op){
+    var qtdCartItemsElement = document.getElementsByClassName("cart-items-qtd")[0];
+    var iconQtdElement = document.getElementsByClassName("icon-qtd")[0];
+    var cartItemElementsQtd = document.getElementsByClassName("cart-item").length;
+
+    if(op == true){
+        // Adding qtd items to cart-icon
+        let qtd = Number(qtdCartItemsElement.innerText) + 1;
+        qtdCartItemsElement.innerText = qtd;
+            
+        iconQtdElement.classList.add("active");
+        
+    } else {
+        let qtd = Number(qtdCartItemsElement.innerText) - 1;
+        if(Number(cartItemElementsQtd.innerText) > 0){
+            qtdCartItemsElement.innerText = qtd;
+            
+            iconQtdElement.classList.add("active");
+        } else {
+            qtdCartItemsElement.innerText = 0;
+            iconQtdElement.classList.remove("active");
+        }
+    }
 }
 
 // Buy Button
@@ -332,6 +365,12 @@ function buyButtonClicked(){
         while(cartContent.hasChildNodes){
             cartContent.removeChild(cartContent.firstChild);
             updateTotal();
+
+            var cartItems = cartContent.getElementsByClassName('cart-item');
+            for(let i=0 ; i<cartItems.length ; i++){
+                var sub = false;
+                changeQtdIcon(false);
+            }
         }
     } else {
         alert("Your cart is empty!");
